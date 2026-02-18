@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PLAIMANAS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PLAIMANAS — Premium Women's Fashion Collections"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Reusable SVG icon definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol
+        id="icon-chevron-down"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </symbol>
+    </svg>
+
+    <div class="page-container">
+      <header class="header" id="header">
+        <div class="header-left">
+          <div class="language-selector" id="langSelector">
+            <span class="lang-current" id="langCurrent">TH - THB</span>
+            <svg class="chevron-down" width="6" height="4" viewBox="0 0 6 4">
+              <path d="M3 4L0 0h6z" fill="currentColor" />
+            </svg>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-option" data-lang="US - USD">US - USD</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+
+        <nav class="nav-main" id="navMain">
+          <div class="nav-item">
+            <button class="nav-button">WOMEN</button>
+          </div>
+          <div class="nav-item">
+            <button class="nav-button">COLLECTIONS</button>
+          </div>
+          <div class="nav-item has-submenu" id="editorialItem">
+            <button class="nav-button" id="editorialBtn">
+              EDITORIAL
+              <svg
+                class="editorial-chevron"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1 1L5 5L9 1" stroke="black" stroke-width="1.2" />
+              </svg>
+            </button>
+            <div class="submenu" id="editorialSubmenu">
+              <div class="submenu-content">
+                <span class="submenu-title">EDITORIAL</span>
+                <a href="#" class="submenu-link">A.S.C</a>
+                <a href="#" class="submenu-link">BAZAAR</a>
+                <a href="#" class="submenu-link">ELLE</a>
+                <a href="#" class="submenu-link">GQ</a>
+                <a href="#" class="submenu-link mobile-only"
+                  >L'OFFICIEL THAILAND</a
+                >
+                <a href="#" class="submenu-link mobile-only">NUMERO</a>
+                <a href="#" class="submenu-link mobile-only">VOGUE</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button class="nav-button">NEWS</button>
+          </div>
+          <div class="nav-item">
+            <button class="nav-button">STORIES</button>
+          </div>
+          <div class="mobile-nav-branding">
+            <img
+              class="mobile-nav-logo"
+              src="assets/elements/main-logo.svg"
+              alt="PLAIMANAS"
+            />
+          </div>
+        </nav>
+
+        <div class="header-right">
+          <button class="sign-in-button">SIGN IN</button>
+          <img
+            class="shopping-bag"
+            src="assets/elements/cart.svg"
+            alt="Cart"
+            width="17"
+            height="17"
+          />
+        </div>
+      </header>
+
+      <!-- Logo section — sticky with shrink on scroll -->
+      <div class="logo-wrapper" id="logoWrapper">
+        <div class="logo-container" id="logoContainer">
+          <!-- Full Logo -->
+          <img
+            id="mainLogo"
+            class="site-logo active"
+            src="assets/elements/main-logo.svg"
+            alt="PLAIMANAS"
+          />
+          <!-- Sub Logo -->
+          <img
+            id="subLogo"
+            class="site-logo"
+            src="assets/elements/sub-logo.svg"
+            alt="PLAIMANAS"
+          />
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h3 class="footer-heading">ABOUT</h3>
+              <nav class="footer-nav">
+                <a href="#">Women</a>
+                <a href="#">Collections</a>
+                <a href="#">Editorial</a>
+                <a href="#">Stories</a>
+              </nav>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-heading">HELP</h3>
+              <nav class="footer-nav">
+                <a href="#">Payment Notification</a>
+                <a href="#">Customer Service</a>
+                <a href="#">FAQ</a>
+              </nav>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-heading">SOCIAL</h3>
+              <nav class="footer-nav">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+              </nav>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-heading">LEGAL</h3>
+              <nav class="footer-nav">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookies Policy</a>
+              </nav>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-heading">NEWSLETTER</h3>
+              <div class="newsletter-form">
+                <input type="email" placeholder="Email" />
+                <button class="subscribe-button">SUBSCRIBE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>©PLAIMANAS</p>
+            <p>Web by ::*</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
