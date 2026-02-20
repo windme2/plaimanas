@@ -413,7 +413,144 @@ video::-webkit-media-controls-panel-container {
   max-width: 647px;
 }
 
-5. FOOTER
+/* Collections */
+.collections-section {
+  width: 978px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.collection-large,
+.collection-small {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.collection-large {
+  width: 100%;
+  height: 550px;
+  margin-bottom: 68px;
+}
+
+.collection-small {
+  height: 455px;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 68px;
+}
+
+.collection-large > img,
+.collection-small > img,
+.collection-hover-media video,
+.collection-hover-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.5s ease,
+    opacity 0.4s ease;
+}
+
+.collection-hover-media {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.collection-large:hover .collection-hover-media,
+.collection-small:hover .collection-hover-media {
+  opacity: 1;
+}
+
+.collection-large:hover > img,
+.collection-small:hover > img {
+  opacity: 0;
+  transform: scale(1.08);
+}
+
+.collection-large:hover .collection-hover-media video,
+.collection-large:hover .collection-hover-media img,
+.collection-small:hover .collection-hover-media img {
+  transform: scale(1.08);
+}
+
+.collection-title-large,
+.collection-title-small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: white;
+  z-index: 5;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.collection-title-large {
+  font-size: 60px;
+  line-height: 1;
+}
+
+.collection-title-small {
+  font-size: 40px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Carousel */
+.carousel-section {
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+  height: 85px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 30px;
+}
+
+.carousel-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: white;
+  font-size: 45px;
+}
+
+.carousel-arrow {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ═══════════════════════════════════════
+   5. FOOTER
    ═══════════════════════════════════════ */
 .footer {
   width: 100%;
