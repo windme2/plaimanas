@@ -975,4 +975,412 @@ video::-webkit-media-controls-panel-container {
 }
 
 /* ═══════════════════════════════════════
-   
+   6. Responsive Design
+   ═══════════════════════════════════════ */
+
+/* ─── Tablet (≤1024px) ─── */
+@media (max-width: 1024px) {
+  .page-container {
+    min-width: 100%;
+  }
+
+  /* Layout & Containers */
+  .collections-section {
+    width: 90%;
+  }
+
+  .product-media-container {
+    width: 90vw;
+    max-width: 566px;
+  }
+
+  .product-media-container.wide {
+    width: 90vw;
+    max-width: 1200px;
+  }
+
+  /* Spacing Adjustments */
+  .faq-cards-section {
+    gap: 40px;
+    padding: 60px 24px;
+  }
+
+  .inquiry-section {
+    padding: 40px 24px;
+  }
+
+  .footer {
+    padding: 32px 24px;
+  }
+}
+
+/* ─── Mobile (≤768px) ─── */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  .header {
+    padding: 0 16px;
+  }
+
+  .nav-main {
+    display: none;
+    position: fixed;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 45px);
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 0;
+    z-index: 200;
+  }
+
+  .nav-main.open {
+    display: flex;
+  }
+
+  .nav-main .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-main .nav-button {
+    width: 100%;
+    padding: 16px;
+    font-size: 15px;
+    opacity: 1;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 8px;
+  }
+
+  .hamburger span {
+    width: 28px;
+    height: 1px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+
+  .sign-in-button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .submenu {
+    position: static;
+    background: transparent;
+    height: auto;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item.open .submenu {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .submenu-content {
+    position: static;
+    transform: none;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .submenu-title {
+    display: none;
+  }
+
+  .submenu-link {
+    color: black;
+    opacity: 0.6;
+    padding: 4px 0;
+  }
+
+  .submenu-link.mobile-only {
+    display: inline-block;
+  }
+
+  .submenu-link:hover {
+    color: black;
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .editorial-chevron {
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+  }
+
+  .nav-item.open .editorial-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* --------------- Logo & Hero Mobile Adjustments --------------- */
+  /* Ensures the logo stays sticky and tracks scroll, hanging lower so it kisses the next product frame */
+  .logo-wrapper {
+    position: sticky;
+    top: 75px;
+    mix-blend-mode: difference;
+    z-index: 30;
+  }
+
+  .logo-container {
+    padding: 10px 0 0 0;
+  }
+
+  /* Hero */
+  .hero-section {
+    margin-top: calc(-15vw - 45px);
+  }
+
+  .hero-media {
+    width: 100vw;
+    height: 105vh;
+    object-fit: cover;
+  }
+
+  /* --------------- Products & Text Mobile Sizing --------------- */
+  .product-section {
+    padding: 80px 0 0;
+  }
+
+  /* Shrunken container so product aspect ratio isn't overwhelming on standard mobile displays */
+  .product-media-container {
+    width: 70vw;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-media-container.wide {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .product-title {
+    font-size: 48px;
+    line-height: 48px;
+    top: 30vh;
+  }
+
+  .section-heading,
+  .section-text {
+    padding: 0 24px;
+    font-size: 14px;
+  }
+
+  .section-text {
+    font-size: 13px;
+  }
+
+  /* Collections */
+  .collections-section {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  .collection-large {
+    height: 300px;
+    margin-bottom: 24px;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .collection-small {
+    height: 220px;
+  }
+
+  .collection-title-large {
+    font-size: 36px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .collection-title-small {
+    font-size: 20px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Carousel */
+  .carousel-section {
+    padding: 16px 0;
+  }
+
+  .carousel-text {
+    font-size: 36px;
+  }
+
+  .carousel-arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-content {
+    gap: 40px;
+  }
+
+  /* FAQ */
+  .faq-cards-section {
+    flex-direction: column;
+    gap: 80px;
+    padding: 40px 24px;
+  }
+
+  .faq-card {
+    max-width: 100%;
+  }
+
+  .faq-section {
+    padding: 40px 16px;
+  }
+
+  .faq-main-title {
+    font-size: 28px;
+  }
+
+  .faq-categories {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .faq-badge {
+    width: fit-content;
+    align-self: center;
+  }
+
+  /* Inquiry Form */
+  .inquiry-section {
+    flex-direction: column;
+    padding: 0 24px 40px;
+    gap: 32px;
+  }
+
+  .inquiry-left,
+  .inquiry-right {
+    width: 100%;
+  }
+
+  .inquiry-title {
+    font-size: 28px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .send-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .homepage-label {
+    padding: 16px 24px;
+    font-size: 11px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 32px 16px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .footer-column:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Mobile Branding Elements - Menu Overlay */
+  .mobile-nav-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .mobile-nav-logo {
+    width: 90vw;
+    height: auto;
+    /* FIX: main-logo.svg is natively white, so on a white menu background it becomes invisible. 
+       We invert it here so it renders as black during the mobile menu overlay */
+    filter: invert(1);
+  }
+}
+
+/* ─── Small Mobile (≤480px) ─── */
+@media (max-width: 480px) {
+  /* Header & Hero */
+  .header {
+    padding: 0 12px;
+  }
+
+  /* Typography Adjustments */
+  .product-title {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .collection-title-large {
+    font-size: 28px;
+  }
+
+  .collection-title-small {
+    font-size: 22px;
+  }
+
+  .carousel-text {
+    font-size: 24px;
+  }
+
+  /* Layout & Sizes */
+  .collection-large {
+    height: 240px;
+  }
+
+  .collection-small {
+    height: 160px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

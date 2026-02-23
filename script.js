@@ -77,6 +77,115 @@ function initStickyHeader() {
 }
 
 /* ═══════════════════════════════════════
+   4. EDITORIAL SUBMENU (Align to button)
+   ═══════════════════════════════════════ */
+function initEditorialSubmenu() {
+  const editorialBtn = document.getElementById("editorialBtn");
+  const editorialSubmenu = document.getElementById("editorialSubmenu");
+  const submenuContent = editorialSubmenu
+    ? editorialSubmenu.querySelector(".submenu-content")
+    : null;
+
+  const positionSubmenu = () => {
+    if (!editorialBtn || !submenuContent) return;
+    if (window.innerWidth <= 768) {
+      submenuContent.style.position = "";
+      submenuContent.style.left = "";
+      submenuContent.style.top = "";
+      return;
+    }
+    const rect = editorialBtn.getBoundingClientRect();
+    submenuContent.style.position = "absolute";
+    submenuContent.style.left = rect.left + "px";
+    submenuContent.style.top = rect.top + "px";
+  };
+
+  if (editorialBtn) {
+    editorialBtn.addEventListener("mouseenter", positionSubmenu);
+
+    let resizeTicking = false;
+    window.addEventListener("resize", () => {
+      if (!resizeTicking) {
+        window.requestAnimationFrame(() => {
+          positionSubmenu();
+          resizeTicking = false;
+        });
+        resizeTicking = true;
+      }
+    });
+
+    positionSubmenu();
+
+    // Mobile Accordion Toggle
+    editorialBtn.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const editorialItem = document.getElementById("editorialItem");
+        if (editorialItem) {
+          editorialItem.classList.toggle("open");
+        }
+      }
+    });
+  }
+}
+
+/* ═══════════════════════════════════════
+   5. SPACEBAR LOGIC (Zoom Out -> Toggle Submenu)
+   ═══════════════════════════════════════ */
+function initSpacebarLogic() {
+  const logoWrapper = document.getElementById("logoWrapper");
+  const editorialBtn = document.getElementById("editorialBtn");
+  const editorialSubmenu = document.getElementById("editorialSubmenu");
+  const submenuContent = editorialSubmenu?.querySelector(".submenu-content");
+  let logoZoomed = false;
+
+  const closeMenu = () => {
+    editorialSubmenu?.classList.remove("spacebar-active");
+  };
+
+  // Desktop Spacebar sequence (3-Steps):
+  // 1. Zoom out Logo.
+  // 2. Open Submenu overlay.
+  // 3. Close Submenu overlay.
+  // Note: We don't artificially zoom back in here, that happens intrinsically in CloseMenu or MouseMove logic if required.
+  document.addEventListener("keydown", (e) => {
+    if (window.innerWidth <= 768) return; // Disable spacebar zoom on mobile
+
+    const isInput = ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName);
+    if (e.code === "Space" && !isInput) {
+      e.preventDefault();
+
+      if (!logoZoomed) {
+        // Step 1: Shrink the logo wrapper into the background
+        logoWrapper?.classList.add("zoomed-out");
+        logoZoomed = true;
+      } else {
+        // Step 2 & 3: Toggle the editorial menu overlay open and closed
+        editorialSubmenu?.classList.toggle("spacebar-active");
+      }
+    }
+  });
+
+  let lastX, lastY;
+  window.addEventListener("mousemove", (e) => {
+    if (!editorialSubmenu?.classList.contains("spacebar-active")) {
+      lastX = e.clientX;
+      lastY = e.clientY;
+      return;
+    }
+
+    if (Math.abs(e.clientX - lastX) > 10 || Math.abs(e.clientY - lastY) > 10) {
+      const isHoveringBtn = editorialBtn?.contains(e.target);
+      const isHoveringContent = submenuContent?.contains(e.target);
+
+      if (!isHoveringBtn && !isHoveringContent) {
+        closeMenu();
+      }
+    }
+  });
+}
+
+/* ═══════════════════════════════════════
    6. COLLECTION HOVER VIDEO
    ═══════════════════════════════════════ */
 function initCollectionHoverVideo() {
